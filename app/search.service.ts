@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-
+/*
 @Injectable()
 export class SearchService{
 	constructor(private _http: Http){}
@@ -12,3 +12,4 @@ export class SearchService{
 
 	
 }
+*/
