@@ -14,19 +14,12 @@ var AppComponent = (function () {
     function AppComponent(_MusicService) {
         this._MusicService = _MusicService;
         this.title = "Ommi Music";
-        this.pagePrev = 1;
-        this.pageNext = 1;
     }
     AppComponent.prototype.search = function (Textsearch) {
         var _this = this;
         this._MusicService.search(Textsearch).subscribe(function (response) {
-            _this.status = response.status;
-            if (_this.status != "success") {
-                _this.status = "error";
-            }
-            else {
-                _this.songs = response.data;
-            }
+            _this.songs = response.data;
+            console.log("ok");
         }, function (error) {
             _this.errorMessage = error;
             if (_this.errorMessage != null) {

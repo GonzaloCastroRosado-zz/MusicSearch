@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {MusicService} from './music.service';
 import { Jsonp, URLSearchParams } from '@angular/http';
+import { Observable } from "rxjs/Observable";
 
 @Component({
   selector: 'my-app',
@@ -10,16 +11,9 @@ import { Jsonp, URLSearchParams } from '@angular/http';
 export class AppComponent { 
 
 	public title:string = "Ommi Music";
-
-	public identity;
 	public songs;
 	public errorMessage;
 	public status;
-	public loading;
-	public pages;
-	public pagePrev = 1;
-	public pageNext = 1;
-	public searchString: string;
 
 	constructor(
 		private _MusicService: MusicService
@@ -28,14 +22,8 @@ export class AppComponent {
 
 	search(Textsearch: string){
 		this._MusicService.search(Textsearch).subscribe(
-				response => {
-						this.status = response.status;
-					
-						if(this.status != "success"){
-							this.status = "error";
-						}else{
-							this.songs = response.data;
-						}
+				response => {this.songs = response.data;
+							console.log("ok");
 				}, 
 				error => {
 					this.errorMessage = <any>error;
