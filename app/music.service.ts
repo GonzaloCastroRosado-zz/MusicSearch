@@ -14,13 +14,10 @@ export class MusicService {
 	constructor(private http: Http){}
 
 	search(TextSearch : string){
-
-		let queryString ="search.php?s="+TextSearch;
-
 		//return this.http.get("search.php?s=" + TextSearch).map(this.extractData).catch(this.handleError);
 
 	  	if(TextSearch !=null){
-	  		return this.http.get(queryString).map(res =>res.json()).catch(this.handleError);
+	  		return this.http.get("search.php?s=" + TextSearch).map(res =>res.json()).catch(this.handleError);
 	  	}
 	}
 

@@ -19,12 +19,10 @@ var MusicService = (function () {
         this.http = http;
     }
     MusicService.prototype.search = function (TextSearch) {
-        var queryString = "search.php?s=" + TextSearch;
-        return this.http.get("search.php?s=" + TextSearch).map(this.extractData).catch(this.handleError);
-        /*
-                if(TextSearch !=null){
-                    return this.http.get(queryString).map(res =>res.json()).catch(this.handleError);
-                }*/
+        //return this.http.get("search.php?s=" + TextSearch).map(this.extractData).catch(this.handleError);
+        if (TextSearch != null) {
+            return this.http.get("search.php?s=" + TextSearch).map(function (res) { return res.json(); }).catch(this.handleError);
+        }
     };
     MusicService.prototype.extractData = function (res) {
         var body = res.json().data || {};
