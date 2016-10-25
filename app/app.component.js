@@ -9,16 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var music_service_1 = require('./music.service');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(_MusicService) {
+        this._MusicService = _MusicService;
         this.title = "Ommi Music";
     }
+    AppComponent.prototype.ngOnInit = function () {
+        this.getSearchMusic();
+    };
+    AppComponent.prototype.getSearchMusic = function () {
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            templateUrl: 'app/home.component.html'
+            templateUrl: 'app/home.component.html',
+            providers: [music_service_1.MusicService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [music_service_1.MusicService])
     ], AppComponent);
     return AppComponent;
 }());
