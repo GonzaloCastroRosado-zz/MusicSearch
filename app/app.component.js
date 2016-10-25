@@ -14,11 +14,26 @@ var AppComponent = (function () {
     function AppComponent(_MusicService) {
         this._MusicService = _MusicService;
         this.title = "Ommi Music";
+        this.pagePrev = 1;
+        this.pageNext = 1;
     }
-    AppComponent.prototype.ngOnInit = function () {
-        this.getSearchMusic();
-    };
-    AppComponent.prototype.getSearchMusic = function () {
+    AppComponent.prototype.search = function (Textsearch) {
+        var _this = this;
+        this._MusicService.search(Textsearch).subscribe(function (response) {
+            _this.status = response.status;
+            if (_this.status != "success") {
+                _this.status = "error";
+            }
+            else {
+                _this.songs = response.data;
+            }
+        }, function (error) {
+            _this.errorMessage = error;
+            if (_this.errorMessage != null) {
+                console.log(_this.errorMessage);
+                alert("Error");
+            }
+        });
     };
     AppComponent = __decorate([
         core_1.Component({

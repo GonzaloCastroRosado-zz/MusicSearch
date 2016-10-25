@@ -12,21 +12,14 @@ var core_1 = require('@angular/core');
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
 var MusicService = (function () {
-    function MusicService(_http) {
-        this._http = _http;
+    function MusicService(http) {
+        this.http = http;
         this.url = "http://localhost:8080/";
     }
-    MusicService.prototype.search = function (search, page) {
-        if (search === void 0) { search = null; }
-        if (page === void 0) { page = null; }
-        if (page == null) {
-            page = 1;
+    MusicService.prototype.search = function (TextSearch) {
+        if (TextSearch != null) {
+            return this.http.get(this.url + "/search.php?s=" + TextSearch).map(function (res) { return res.json(); });
         }
-        var http;
-        if (search != null) {
-            http = this._http.get(this.url + "/search.php?s=" + search + "?page" + page).map(function (res) { return res.json(); });
-        }
-        return http;
     };
     MusicService = __decorate([
         core_1.Injectable(), 

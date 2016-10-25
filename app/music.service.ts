@@ -8,19 +8,12 @@ export class MusicService {
 
 	public url = "http://localhost:8080/";
 
-	constructor(private _http: Http){}
+	constructor(private http: Http){}
 
-	search(search=null,page=null){
-	  	if(page ==null){
-	  		page=1;
+	search(TextSearch : string){
+	  	if(TextSearch !=null){
+	  		return this.http.get(this.url+"/search.php?s="+TextSearch).map(res =>res.json());
 	  	}
-
-	  	let http: any;
-	  	if(search !=null){
-	  		http = this._http.get(this.url+"/search.php?s="+search+"?page"+page).map(res =>res.json());
-	  	}
-	  	return http;
-
 	}
 
 }
