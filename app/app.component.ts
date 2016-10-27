@@ -15,15 +15,17 @@ export class AppComponent {
 	public errorMessage;
 	public status;
 
+	
 	constructor(
 		private _MusicService: MusicService
 
 	){}	
+	
 
 	search(Textsearch: string){
+
 		this._MusicService.search(Textsearch).subscribe(
 				response => {this.songs = response.data;
-							console.log("ok");
 				}, 
 				error => {
 					this.errorMessage = <any>error;
@@ -33,7 +35,9 @@ export class AppComponent {
 						alert("Error");
 					}
 				}
-			);
+		)
+
+
 	}
 
 }

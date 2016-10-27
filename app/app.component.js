@@ -19,7 +19,6 @@ var AppComponent = (function () {
         var _this = this;
         this._MusicService.search(Textsearch).subscribe(function (response) {
             _this.songs = response.data;
-            console.log("ok");
         }, function (error) {
             _this.errorMessage = error;
             if (_this.errorMessage != null) {

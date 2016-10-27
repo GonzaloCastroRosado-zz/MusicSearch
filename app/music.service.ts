@@ -6,8 +6,6 @@ import {Observable} from "rxjs/Observable";
 import { Track } from "./Track";
 
 
-
-
 @Injectable()
 export class MusicService {
 
@@ -17,7 +15,8 @@ export class MusicService {
 		//return this.http.get("search.php?s=" + TextSearch).map(this.extractData).catch(this.handleError);
 
 	  	if(TextSearch !=null){
-	  		return this.http.get("search.php?s=" + TextSearch).map(res =>res.json()).catch(this.handleError);
+            //return this.http.get("/Angular/MusicSearch/search.php?s=" + TextSearch).map(res =>res.json()).catch(this.handleError);
+            return this.http.get(`search.php?s=${TextSearch}`).map(res =>res.json()).catch(this.handleError);
 	  	}
 	}
 
