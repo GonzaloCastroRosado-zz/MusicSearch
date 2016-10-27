@@ -6,11 +6,9 @@
 	<br>
 	<br>
 	<div align="center" id="searchDiv"> 
-		<form>
 		  <input #searchBox type="text"  placeholder="Search for songs">
 		  <button (click)="search(searchBox.value)">Search</button>
 		  <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
-		</form>
 	</div>
 </div>
 

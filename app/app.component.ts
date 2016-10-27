@@ -26,6 +26,7 @@ export class AppComponent {
 
 		this._MusicService.search(Textsearch).subscribe(
 				response => {this.songs = response.data;
+							console.log(response.data);
 				}, 
 				error => {
 					this.errorMessage = <any>error;

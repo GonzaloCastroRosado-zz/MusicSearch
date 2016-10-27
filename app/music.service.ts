@@ -15,8 +15,9 @@ export class MusicService {
 		//return this.http.get("search.php?s=" + TextSearch).map(this.extractData).catch(this.handleError);
 
 	  	if(TextSearch !=null){
-            //return this.http.get("/Angular/MusicSearch/search.php?s=" + TextSearch).map(res =>res.json()).catch(this.handleError);
-            return this.http.get(`search.php?s=${TextSearch}`).map(res =>res.json()).catch(this.handleError);
+            alert("Entra");
+            return this.http.get("search.php?s=" + TextSearch).map(res =>res.json()).catch(this.handleError);
+            //return this.http.get(`search.php?s=${TextSearch}`).map(res =>res.json()).catch(this.handleError);
 	  	}
 	}
 
