@@ -1,0 +1,11 @@
+<div align="center" > 
+	<li *ngFor="let song of songs">
+		<div class="data">
+			<audio controls>
+			  <source src="{{song}}" type="audio/ogg">
+			</audio>
+		</div>
+		<div class="clearfix"></div>
+	</li>
+</div>
+

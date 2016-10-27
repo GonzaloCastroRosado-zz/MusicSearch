@@ -1,44 +1,18 @@
 import { Component } from '@angular/core';
-import {MusicService} from './music.service';
-import { Jsonp, URLSearchParams } from '@angular/http';
-import { Observable } from "rxjs/Observable";
 
 @Component({
+  moduleId: module.id,
   selector: 'my-app',
-  templateUrl:  'app/home.component.html',
-  providers: [MusicService]
+  template: `
+    <h1>{{title}}</h1>
+    <nav>
+      <a routerLink="/Search" routerLinkActive="active">Search</a>
+      <a routerLink="/ListDirectory" routerLinkActive="active">List Directory</a>
+    </nav>
+    <router-outlet></router-outlet>
+  `,
+  styleUrls: ['app.component.css'],
 })
-export class AppComponent { 
-
-	public title:string = "Ommi Music";
-	public songs;
-	public errorMessage;
-	public status;
-
-	
-	constructor(
-		private _MusicService: MusicService
-
-	){}	
-	
-
-	search(Textsearch: string){
-
-		this._MusicService.search(Textsearch).subscribe(
-				response => {this.songs = response.data;
-							console.log(this.songs);
-				}, 
-				error => {
-					this.errorMessage = <any>error;
-
-					if(this.errorMessage != null){
-						console.log(this.errorMessage);
-						alert("Error");
-					}
-				}
-		)
-
-
-	}
-
+export class AppComponent {
+  title = 'Ommi Music';
 }
