@@ -17,7 +17,7 @@ exec($command.' | head -n100', $output);
 sort($output, SORT_NATURAL);
 
 for($i=0;$i<count($output);$i++) {
-	$output[$i] = str_replace($dir,"http://localhost/music/",$output[$i]);
+	$output[$i] = str_replace($dir,"http://localhost:8080/music/blind_guardian",$output[$i]);
 }
 
 $response = array("data"=>$output);

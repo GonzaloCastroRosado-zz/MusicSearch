@@ -12,12 +12,9 @@ export class MusicService {
 	constructor(private http: Http){}
 
 	search(TextSearch : string){
-		//return this.http.get("search.php?s=" + TextSearch).map(this.extractData).catch(this.handleError);
-
 	  	if(TextSearch !=null){
-            alert("Entra");
             return this.http.get("search.php?s=" + TextSearch).map(res =>res.json()).catch(this.handleError);
-            //return this.http.get(`search.php?s=${TextSearch}`).map(res =>res.json()).catch(this.handleError);
+
 	  	}
 	}
 

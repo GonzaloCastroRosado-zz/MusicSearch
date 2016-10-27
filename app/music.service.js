@@ -19,9 +19,7 @@ var MusicService = (function () {
         this.http = http;
     }
     MusicService.prototype.search = function (TextSearch) {
-        //return this.http.get("search.php?s=" + TextSearch).map(this.extractData).catch(this.handleError);
         if (TextSearch != null) {
-            alert("Entra");
             return this.http.get("search.php?s=" + TextSearch).map(function (res) { return res.json(); }).catch(this.handleError);
         }
     };
